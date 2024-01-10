@@ -227,7 +227,7 @@ function Home() {
                     <div className='w-full gap-[10px]'>
                         <ul className="flex border-b">
                             <li className={`mr-1  ${(location.href === 'http://localhost:3000/' || location.href === 'https://app.lavavelox.com/' || location.href === 'http://localhost:3000/#' || location.href === 'https://app.lavavelox.com/#' || location.href.includes('#Services')) ? '-mb-px' : ''}`}>
-                                <a href='#Services' className={`bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold cursor-pointer ${(location.href === 'http://localhost:3000/' || location.href === 'https://app.lavavelox.com/' || location.href.includes('#Services')) ? 'border-l border-t border-r rounded-t' : ''}`} >Servicios</a>
+                                <a href='#Services' className={`bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold cursor-pointer ${(location.href === 'http://localhost:3000/' || location.href === 'https://app.lavavelox.com/' || location.href.includes('#Services')) ? 'border-l border-t border-r rounded-t' : ''}`} >Carrito</a>
                             </li>
                             <li className={`mr-1 ${location.href.includes('#Client') ? '-mb-px' : ''}`}>
                                 <a href='#Client' className={`bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold cursor-pointer ${location.href.includes('#Client') ? 'border-l border-t border-r  rounded-t' : ''}`} >Cliente</a>
