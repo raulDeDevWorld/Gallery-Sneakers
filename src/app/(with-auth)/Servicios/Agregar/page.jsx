@@ -133,7 +133,7 @@ function Home() {
                     </div>
                     <div>
                         <Label htmlFor="">Precio </Label>
-                        <Select arr={perfil['precio']} name='precio' click={onClickHandlerSelect} />
+                        <Input type="text" name="precio" reference={inputRef4} onChange={onChangeHandler} require />
                     </div>
                     <h4 className='text-center col-span-2 text-[16px] pt-10'>AGREGA LOS STOCK POR SUCURSAL</h4>
                     {
