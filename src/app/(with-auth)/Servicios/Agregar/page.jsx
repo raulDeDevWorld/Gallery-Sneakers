@@ -85,7 +85,7 @@ function Home() {
             {modal === "Guardando" && <LoaderBlack>{modal}</LoaderBlack>}
 
             <form className='p-10 min-w-screen  lg:min-w-auto bg-white shadow-2xl min-h-[80vh]' onSubmit={save}>
-                <h3 className='text-center text-[16px] pb-3'>AGREGAR SERVICIO</h3>
+                <h3 className='text-center text-[16px] pb-3'>AGREGAR PRODUCTO</h3>
 
                 <div className="min-w-full flex justify-center ">
                     <label htmlFor="fileUpload" className="mt-2 flex justify-center items-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 md:w-[250px] md:h-[200px]" style={{ backgroundImage: `url(${urlPostImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
@@ -131,19 +131,23 @@ function Home() {
                         <Label htmlFor="">Categoria</Label>
                         <Select arr={perfil.categoria} name='categoria' click={onClickHandlerSelect} />
                     </div>
-                    <h4 className='text-center col-span-2 text-[16px] pt-10'>AGREGA LOS COSTOS POR SUCURSAL</h4>
+                    <div>
+                        <Label htmlFor="">Precio </Label>
+                        <Select arr={perfil['precio']} name='precio' click={onClickHandlerSelect} />
+                    </div>
+                    <h4 className='text-center col-span-2 text-[16px] pt-10'>AGREGA LOS STOCK POR SUCURSAL</h4>
                     {
                         sucursales && sucursales !== undefined && Object.values(sucursales).map((i, index) => {
                             return <div>
                                 <h5 className='text-center col-span-2 text-[16px] p-5'>{i.nombre}</h5>
                                 <div>
-                                    <Label htmlFor="">Costo entrega en 24 hrs</Label>
+                                    <Label htmlFor="">Stock</Label>
                                     <Input type="text" name={`costo 24 hrs ${i.uuid}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={onChangeHandlerDynimic} />
                                 </div>
-                                <div>
+                                {/* <div>
                                     <Label htmlFor="">Costo adicional entrega inmediata</Label>
                                     <Input type="text" name={`costo inmediato ${i.uuid}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={onChangeHandlerDynimic} />
-                                </div>
+                                </div> */}
                             </div>
                         })
                     }
