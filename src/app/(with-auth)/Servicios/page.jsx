@@ -155,7 +155,7 @@ function Home() {
                                 Categoria
                             </th>
                             <th scope="col" className="text-center px-3 py-3">
-                                Recepción por
+                                Categoria 2
                             </th>
                             {sucursales && sucursales !== undefined && Object.values(sucursales).map((i) => {
                                 return <>
