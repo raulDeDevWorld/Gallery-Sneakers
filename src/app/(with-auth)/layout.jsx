@@ -105,9 +105,9 @@ function Home({ children }) {
           {search && <div className='fixed top-0 left-0 w-screen h-screen bg-[#ffffff00] z-40' onClick={() => setSearch(false)}></div>}
 
           <main className={`relative w-screen min-w-screen  lg:pb-0  lg:min-w-auto my-[0px] bg-white lg:min-h-screen  ${nav ? 'w-screen pl-[220px] lg:pl-[280px] ' : '  lg:px-[0px]'}`} onClick={() => setNav(false)} style={{ transition: 'all 0.5' }} >
-            <nav className="w-screen fixed top-0 border-b border-gray-200 shadow-sm  flex items-center justify-between bg-[#00E2FF]  p-4 h-[70px] z-30" onClick={() => setNav(false)}>
+            <nav className="w-screen fixed top-0 border-b border-gray-200 shadow-sm  flex items-center justify-between bg-black  p-4 h-[70px] z-30" onClick={() => setNav(false)}>
 
-              <div
+              {/* <div
                 className='absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center'
                 style={{
                   backgroundImage: 'url(/bg.jpeg)',
@@ -123,7 +123,7 @@ function Home({ children }) {
                   background: ' #00E2FF80 50%'
                   //  background: 'linear-gradient(0deg, #ffffff80 50%, #00E2FF80 50%)' 
                 }}>
-              </div>
+              </div> */}
 
               {pathname === '/' && (!location.href.includes('#') || location.href === 'http://localhost:3000/#' || location.href === 'https://app.lavavelox.com/#') ?
                 <div className='flex lg:block z-10'>
@@ -181,7 +181,7 @@ function Home({ children }) {
               {children}
             </div>
 
-            {userDB && userDB !== undefined && perfil !== undefined && <div className="fixed bottom-0  z-30 w-full h-[65px] bg-[#00E2FF] rounded-t-[40px] border-t-[1px] border-gray-50  lg:hidden">
+            {userDB && userDB !== undefined && perfil !== undefined && <div className="fixed bottom-0  z-30 w-full h-[65px] bg-black rounded-t-[40px] border-t-[1px] border-gray-50  lg:hidden">
               <div
                 className='absolute top-0 w-full h-full flex flex-col justify-center items-center rounded-t-[40px] '
                 style={{

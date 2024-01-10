@@ -154,8 +154,8 @@ function Home() {
                 </table>
 
                 <div className='lg:flex hidden lg:fixed top-[100px] right-[65px] '>
-                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-normal font-medium bg-[#00E2FF] border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Sucursal</div>
-                    <div className='flex justify-center items-center bg-[#00E2FF] h-[50px] w-[50px]  rounded-full text-white cursor-pointer' onClick={redirect}> <span className='text-white text-[30px]'>+</span> </div>
+                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-normal font-medium bg-black border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Sucursal</div>
+                    <div className='flex justify-center items-center bg-black h-[50px] w-[50px]  rounded-full text-white cursor-pointer' onClick={redirect}> <span className='text-white text-[30px]'>+</span> </div>
                 </div>
             </div>
         </div>

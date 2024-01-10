@@ -22,9 +22,9 @@ export default function BottomNavigation({ rol }) {
         setNav(false)
     }
     const Header = () => {
-        return <li className="relative inline-block flex flex-col justify-center items-center p-[10px] py-[30px] bg-[#00E2FF]  border-b border-gray-[1px]  w-full">
+        return <li className="relative inline-block flex flex-col justify-center items-center p-[10px] py-[30px] bg-black  border-b border-gray-[1px]  w-full">
 
-            <div
+            {/* <div
                 className='absolute top-0 w-full h-full flex flex-col justify-center items-center'
                 style={{
                     backgroundImage: 'url(/bg.jpeg)',
@@ -40,7 +40,7 @@ export default function BottomNavigation({ rol }) {
                     background: ' #00E2FF80 50%'
                     //  background: 'linear-gradient(0deg, #ffffff80 50%, #00E2FF80 50%)' 
                 }}>
-            </div>
+            </div> */}
             <img src="/logo.png" className='h-[50px] z-10' alt="" />
             <br />
             <h3 className='text-white font-bold text-center z-10'
