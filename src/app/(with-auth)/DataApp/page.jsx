@@ -82,7 +82,7 @@ function Home() {
                         <Input type="text" name="categoria" onChange={onChangeHandler}  defValue={perfil && perfil['categoria'] !== undefined && perfil['categoria'].length > 0 ? perfil['categoria'].toString().replaceAll('"', '').replaceAll('[', '').replaceAll('"', '').replaceAll(']', '').replaceAll(',', ', ') : ''} require />
                     </div>
                     <div>
-                        <Label htmlFor="">Recepcion por</Label>
+                        <Label htmlFor="">Modelo</Label>
                         <Input type="text" name="recepcion por" onChange={onChangeHandler}  defValue={perfil && perfil['recepcion por'] !== undefined && perfil['recepcion por'].length > 0 ? perfil['recepcion por'].toString().replaceAll('"', '').replaceAll('[', '').replaceAll('"', '').replaceAll(']', '').replaceAll(',', ', ') : ''} require />
                     </div>
                 </div>

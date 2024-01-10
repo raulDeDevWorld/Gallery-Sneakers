@@ -17,7 +17,6 @@ import dynamic from "next/dynamic";
 const InvoicePDF = dynamic(() => import("@/components/pdf"), {
     ssr: false,
 });
-removeData
 
 function Home() {
     const { user, setUserProfile, setUserUuid, userDB, msg, setMsg, modal, item, setModal, temporal, setTemporal, distributorPDB, setUserDistributorPDB, setUserItem, setUserData, setUserSuccess, sucursales, setSucursales, pendientes, setPendientes, setTareas, tareas } = useUser()
@@ -183,9 +182,9 @@ function Home() {
                                 A cuenta
                             </th>
                             <th scope="col" className="px-3 py-3">
-                                Saldo
+                                Descuento
                             </th>
-                            <th scope="col" className="px-3 py-3">
+                            {/* <th scope="col" className="px-3 py-3">
                                 Fecha De Recepción
                             </th>
                             <th scope="col" className="px-3 py-3">
@@ -202,21 +201,21 @@ function Home() {
                             </th>
                             <th scope="col" className="px-3 py-3">
                                 Fecha De Entrega
-                            </th>
+                            </th> 
                             <th scope="col" className="text-center px-3 py-3">
                                 Avance
                             </th>
                             <th scope="col" className="text-center px-3 py-3">
                                 Comprobante <br /> Entrega
-                            </th>
-                            {userDB.rol !== 'Cliente' && <>
+                            </th>*/}
+                            {/* {userDB.rol !== 'Cliente' && <>
                                 <th scope="col" className="text-center px-3 py-3">
                                     Entregar
                                 </th>
                                 <th scope="col" className="text-center px-3 py-3">
                                     Eliminar
                                 </th>
-                            </>}
+                            </>} */}
                         </tr>
                     </thead>
                     <tbody>
@@ -238,10 +237,7 @@ function Home() {
                                     </td>
                                     <td className="min-w-[300px] px-3 py-4  text-gray-900 " >
                                         {i['direccion']}
-                                        {/* {i['nombre receptor']
-                                            ? i['direccion']
-                                            : userDB.rol !== 'Cliente' && <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='direccion' defaultValue={i['direccion']} className="block p-1.5  w-full h-full text-[16px] text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
-                                        } */}
+                                      
                                     </td>
                                     <td className="min-w-[300px] px-3 py-4  text-gray-900 ">
                                         {Object.values(i.servicios).map((el, index) => <li key={index}>
@@ -265,7 +261,7 @@ function Home() {
                                     <td className="px-3 py-4  text-gray-900 ">
                                         {i['saldo'] - (state[i.uuid] && state[i.uuid].ac && state[i.uuid].ac !== undefined ? state[i.uuid].ac - i.ac : 0)}
                                     </td>
-                                    <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
+                                    {/* <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
                                         {i['fecha']}
                                     </td>
                                     <td className="relative w-[200px] px-3 py-4  text-gray-900 ">
@@ -322,8 +318,8 @@ function Home() {
 
                                     <td className="min-w-[200px] px-3 py-4  text-gray-900 ">
                                         {i['nombre receptor'] ? <InvoicePDF i={i} /> : <Button theme={"Disable"}>PDF</Button>}
-                                    </td>
-                                    {userDB.rol !== 'Cliente' && <>
+                                    </td>*/}
+                                    {/* {userDB.rol !== 'Cliente' && <>
                                         <td className="min-w-[200px] px-3 py-4">
                                             {state[i.uuid] && (state[i.uuid]['nombre receptor'] || state[i.uuid]['CI receptor'] || state[i.uuid]['whatsapp receptor'])
                                                 ? (state[i.uuid]['nombre receptor'] && state[i.uuid]['CI receptor'] && state[i.uuid]['whatsapp receptor']
@@ -337,8 +333,8 @@ function Home() {
                                                 ? <Button theme={"Primary"} click={() => save(i)}>Guardar</Button>
                                                 : <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>)
                                             }
-                                        </td>
-                                    </>}
+                                        </td> 
+                                    </>} */}
                                 </tr>
                         })
                         }

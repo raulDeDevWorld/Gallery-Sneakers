@@ -15,10 +15,10 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-navbutton-color" content="#000000" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
-        <meta name="description" content="Sistema de Administracion LAVA VELOX" />
+        <meta name="description" content="Sistema de Administracion Gallery Sneakers" />
         <meta name="keywords" content="Velox" />
         <meta name="author" content="Velox" />
-        <title>Lava Velox</title>
+        <title>Gallery Sneakers</title>
       </head>
       <body className={inter.className}>
         <UserProvider>

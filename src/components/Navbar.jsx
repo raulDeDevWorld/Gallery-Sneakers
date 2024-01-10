@@ -86,7 +86,7 @@ export default function BottomNavigation({ rol }) {
                         </clipPath>
                     </defs>
                 </svg>
-                <span className="flex-1 ml-3 white space-nowrap text-black   hover:font-medium">Pendientes</span>
+                <span className="flex-1 ml-3 white space-nowrap text-black   hover:font-medium">Reporte</span>
             </Link>
         </li>
     }

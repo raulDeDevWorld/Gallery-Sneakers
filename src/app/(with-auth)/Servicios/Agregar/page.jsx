@@ -124,7 +124,7 @@ function Home() {
                         <Input type="text" name="descripcion basica" reference={inputRef4} onChange={onChangeHandler} require />
                     </div>
                     <div>
-                        <Label htmlFor="">Recepción por </Label>
+                        <Label htmlFor="">Modelo </Label>
                         <Select arr={perfil['recepcion por']} name='recepcion por' click={onClickHandlerSelect} />
                     </div>
                     <div>
