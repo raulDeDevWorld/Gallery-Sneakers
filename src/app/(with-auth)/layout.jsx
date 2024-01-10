@@ -182,7 +182,7 @@ function Home({ children }) {
             </div>
 
             {userDB && userDB !== undefined && perfil !== undefined && <div className="fixed bottom-0  z-30 w-full h-[65px] bg-black rounded-t-[40px] border-t-[1px] border-gray-50  lg:hidden">
-              <div
+              {/* <div
                 className='absolute top-0 w-full h-full flex flex-col justify-center items-center rounded-t-[40px] '
                 style={{
                   backgroundImage: 'url(/bg.jpeg)',
@@ -198,7 +198,7 @@ function Home({ children }) {
                   background: ' #00E2FF80 50%'
                   //  background: 'linear-gradient(0deg, #ffffff80 50%, #00E2FF80 50%)' 
                 }}>
-              </div>
+              </div> */}
               <BottomNavigation rol={userDB.rol} />
             </div>}
 
