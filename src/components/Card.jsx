@@ -18,13 +18,13 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
     const addCart = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        setUserCart({ ...cart, [i.uuid]: { ...i, costo, cantidad: detalle !== undefined ? detalle.cantidad : 1 } })
+        setUserCart({ ...cart, [i.uuid]: { ...i, costo: i.precio , cantidad: detalle !== undefined ? detalle.cantidad : 1 } })
     }
 
     const addPlussCart = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        setUserCart({ ...cart, [i.uuid]: { ...i, costo, cantidad: detalle !== undefined ? detalle.cantidad : cart[i.uuid].cantidad + 1 } })
+        setUserCart({ ...cart, [i.uuid]: { ...i, costo: i.precio , cantidad: detalle !== undefined ? detalle.cantidad : cart[i.uuid].cantidad + 1 } })
     }
 
     const addLessCart = (e) => {
@@ -35,7 +35,7 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
 
         cart[i.uuid].cantidad - 1 == 0
             ? setUserCart(obj)
-            : setUserCart({ ...cart, [i.uuid]: { ...i, costo, cantidad: detalle !== undefined ? 0 : cart[i.uuid].cantidad - 1 } })
+            : setUserCart({ ...cart, [i.uuid]: { ...i, costo: i.precio , cantidad: detalle !== undefined ? 0 : cart[i.uuid].cantidad - 1 } })
     }
 
     return (

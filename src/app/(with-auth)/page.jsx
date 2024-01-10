@@ -180,7 +180,7 @@ function Home() {
             setModal('user non exit')
         }
     }
-    console.log(location.href)
+    console.log(cart)
     return (
         <main className="">
             {(modal == 'Recetar' || modal == 'Comprar') && <Modal funcion={storeConfirm}>Estas seguro de cambiar a {modal}. <br /> {Object.keys(cart).length > 0 && 'Tus datos se borraran'}</Modal>}
