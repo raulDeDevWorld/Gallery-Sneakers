@@ -157,6 +157,9 @@ function Home() {
                             <th scope="col" className="text-center px-3 py-3">
                                 Categoria 2
                             </th>
+                            <th scope="col" className="text-center px-3 py-3">
+                                Precio
+                            </th>
                             {sucursales && sucursales !== undefined && Object.values(sucursales).map((i) => {
                                 return <>
                                     <th scope="col" className="min-w-[100px] text-center px-3 py-3">
@@ -208,7 +211,9 @@ function Home() {
                                     <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
                                         <Select arr={perfil['recepcion por']} name='recepcion por' uuid={i.uuid} defaultValue={i['recepcion por']} click={onClickHandlerSelect} />
                                     </td>
-
+                                    <td className="px-3 py-4  text-gray-900 " >
+                                        <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='precio' defaultValue={i['precio']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
+                                    </td>
                                     {/* {JSON.parse(i['costos y entregas'])[`costo inmediato ${item.uuid}`]}  */}
                                     {sucursales && sucursales !== undefined && Object.values(sucursales).map((item) => {
 
