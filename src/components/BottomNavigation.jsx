@@ -137,7 +137,7 @@ export default function BottomNavigation({ rol }) {
                     </Link>}
                 <Button click={() => redirectHandler(`/Pendientes`, 'Pendientes')} name={'Pedidos'}>
                     <Order />
-                    <span className="inline-block  text-[14px] text-white">Pendientes</span>
+                    <span className="inline-block  text-[14px] text-white">Productos</span>
                 </Button>
 
                 <Button click={redirectHandlerWindow} name={'Plantilla'}>
@@ -163,7 +163,7 @@ export default function BottomNavigation({ rol }) {
                     </Link>}
                 <Button click={() => redirectHandler(`/Pendientes`, 'Pendientes')} name={'Pedidos'}>
                     <Order />
-                    <span className="inline-block  text-[14px] text-white">Pendientes</span>
+                    <span className="inline-block  text-[14px] text-white">Productos</span>
                 </Button>
                 <Button click={redirectHandlerWindow} name={'Plantilla'}>
                     <Support />
@@ -195,7 +195,7 @@ export default function BottomNavigation({ rol }) {
                         </Button>
                         : <Button click={() => redirectHandler(`/Pendientes`, 'Pendientes')} name={'Pedidos'}>
                             <Order />
-                            <span className="inline-block  text-[14px] text-white">Pendientes</span>
+                            <span className="inline-block  text-[14px] text-white">Productos</span>
                         </Button>
                 }
                 <Button click={redirectHandlerWindow} name={'Plantilla'}>
