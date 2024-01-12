@@ -146,6 +146,7 @@ console.log(counter)
                                 {counter[i.nombre] !== undefined && Array(counter[i.nombre]).fill(1).map((e, index) => <>
                                     <div>
                                         <Label htmlFor="">Talla</Label>
+                                        
                                         <Input type="text" name={`talla${index}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={(e)=>onChangeHandlerDynimic(e, i.uuid)} />
                                     </div>
                                     <div>
