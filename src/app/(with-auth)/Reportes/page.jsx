@@ -86,58 +86,140 @@ function Home() {
                     <input type="text" className='border-b border-gray-300 gap-4 text-center focus:outline-none  w-[300px]' onChange={onChangeHandler} placeholder='Filtrar por nombre' />
                 </div>
                 <br />
-                <table className="min-w-full  text-[14px] text-left text-gray-500 border-t-4 border-gray-400">
+                <table className={` w-full text-[14px] text-left text-gray-500 border-t-4 border-gray-400`} style={{minWidth: `${sucursales && sucursales !== undefined ? sucursales.length * 200 + 1500 : 1500}px`}}>
                     <thead className="text-[14px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" className="px-3 py-3">
+                            <th scope="col" className="min-w-[50px] px-3 py-3">
                                 #
                             </th>
-                            <th scope="col" className="px-3 py-3">
-                                Nombre
+                            <th scope="col" className="min-w-[80px] px-3 py-3">
+                                Marca
                             </th>
-                            <th scope="col" className="px-3 py-3">
-                                CI
+                            <th scope="col" className="min-w-[80px] px-3 py-3">
+                                Modelo
                             </th>
-                            <th scope="col" className="px-3 py-3">
-                                Dirección
+                            <th scope="col" className="min-w-[80px] px-3 py-3">
+                                nombre
                             </th>
-                            
+                            {/* <th scope="col" className="px-3 py-3">
+                                Descripcion basica
+                            </th> */}
+                            {/* <th scope="col" className="text-center px-3 py-3">
+                                Categoria
+                            </th>
+                            <th scope="col" className="text-center px-3 py-3">
+                                Categoria 2
+                            </th> */}
+                            <th scope="col" className="text-center px-3 py-3">
+                                Precio
+                            </th>
+                            {sucursales && sucursales !== undefined && Object.values(sucursales).map((i) => {
+                                return <>
+                                    <th scope="col" className="  px-3 py-3">
+                                        Stock {i.nombre}
+                                    </th>
+                                    {/* <th scope="col" className="min-w-[100px] text-center px-3 py-3">
+                                        Adicional inmediato <br />
+                                        {i.nombre}
+                                    </th> */}
+                                </>
+                            })}
                             <th scope="col" className="px-3 py-3">
-                                Whatsapp
-                            </th>    
-                            <th scope="col" className="px-3 py-3">
-                                Eliminar
+                                Imagen
+                            </th>
+                            <th scope="col" className="text-center px-3 py-3">
+                                Editar
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        {sucursales && temporal !== undefined && Object.values(sucursales).sort(sortArray).map((i, index) => {
+                        {servicios && Object.values(servicios).sort(sortArray).map((i, index) => {
 
-                            return i.ciudad.includes(ciudad) && i.nombre.toLowerCase().includes(filter) && <tr className="bg-white text-[14px] border-b dark:bg-gray-800  hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
-                                <td className="px-3 py-4  flex font-semibold text-gray-900 ">
-                                    <span className='h-full flex py-2'>{index + 1}</span>
-                                </td>
-                                <td className="px-3 py-4 font-semibold text-gray-900 " onClick={(e) => redirect(i.uuid)}>
-                                    {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 1' defaultValue={i['nombre de producto 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
-                                    {i['nombre']}
-                                </td>
-                                <td className="px-3 py-4 font-semibold text-gray-900 " onClick={(e) => redirect(i.uuid)}>
-                                    {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 1' defaultValue={i['nombre de producto 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
-                                    {i['CI']}
-                                </td>
-                                <td className="px-3 py-4 font-semibold text-gray-900 " onClick={(e) => redirect(i.uuid)}>
-                                    {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 1' defaultValue={i['nombre de producto 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
-                                    {i['Direccion']}
-                                </td>
-                                <td className="px-3 py-4 font-semibold text-gray-900 ">
-                                    {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} name='costo' cols="4" defaultValue={i['costo']} className="block p-1.5 h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
-                                    {i['whatsapp']}
-                                </td>
+                            return ((i['nombre 1'].toLowerCase().includes(filter) ||
+                                i['nombre 2'].toLowerCase().includes(filter))) &&
+                                <tr className="bg-white text-[14px] border-b dark:bg-gray-800  hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
+                                    <td className="min-w-[50px] px-3 py-4 text-gray-900 align-middle">
+                                        {index + 1}
+                                    </td>
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 1' defaultValue={i['nombre 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                        {i['nombre 1']} 
+                                    </td>
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 2' defaultValue={i['nombre 2']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                        {i['nombre 2']} 
+                                    </td>
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 2' defaultValue={i['nombre 2']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                        {i['nombre 3']} 
+                                    </td>
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 3' defaultValue={i['nombre 3']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                         {i['precio']}
+                                    </td>
+                                    {/* <td className="px-3 py-4  text-gray-900 " >
+                                        <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='descripcion basica' defaultValue={i['descripcion basica']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
+                                    </td>
+                                    <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
+                                        <Select arr={perfil.categoria} name='categoria' uuid={i.uuid} defaultValue={i.categoria} click={onClickHandlerSelect} />
+                                    </td>
+                                    <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
+                                        <Select arr={perfil['recepcion por']} name='recepcion por' uuid={i.uuid} defaultValue={i['recepcion por']} click={onClickHandlerSelect} />
+                                    </td>
+                                    <td className="px-3 py-4  text-gray-900 " >
+                                        <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='precio' defaultValue={i['precio']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
+                                    </td> */}
+                                    {/* {JSON.parse(i['costos y entregas'])[`costo inmediato ${item.uuid}`]}  */}
+                                    {sucursales && sucursales !== undefined && Object.values(sucursales).map((item) => {
 
-                                <td className="px-3 py-4">
-                                    <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>
-                                </td>
-                            </tr>
+                                        return <>
+
+                                            {/* <td>
+                                                <textarea id="message" rows="1" onChange={(e) => onChangeHandlerDynamic(e, i)} cols="6" name={`costo 24 hrs ${item.uuid}`} defaultValue={i['costos y entregas'] !== undefined ? i['costos y entregas'][`costo 24 hrs ${item.uuid}`] : 0} className="block p-1.5  w-full text-center h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
+                                            </td> */}
+                                            <td>
+                                                {i['costos y entregas'][`${item.uuid}`] !== undefined && Array(Object.values(i['costos y entregas'][`${item.uuid}`]).length/2).fill('').map((e, index)=>{
+                                                    console.log(i['costos y entregas'][`${item.uuid}`][`talla${index}`])
+                                               return <>Talla {i['costos y entregas'][`${item.uuid}`][`talla${index}`]}/ {i['costos y entregas'][`${item.uuid}`][`stock${index}`]}unidades <br /></>  
+                                                 } )
+                                                }
+                                             {/* {i['costos y entregas'][`${item.uuid}`]} / {i['costos y entregas'][`stock ${item.uuid}`]} */}
+                                            </td>
+                                            {/* <td>
+                                                <textarea id="message" rows="1" onChange={(e) => onChangeHandlerDynamic(e, i)} cols="6" name={`costo inmediato ${item.uuid}`} defaultValue={i['costos y entregas'] !== undefined ? i['costos y entregas'][`costo inmediato ${item.uuid}`] : 0} className="block p-1.5  w-full h-full text-center text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
+                                            </td> */}
+                                        </>
+                                    }
+                                    )}
+
+                                    {/* {sucursales && sucursales !== undefined && Object.values(sucursales).map((item) => {
+                                        return <>
+                                            <td scope="col" className="px-3 py-3">
+                                                Costo 24 hrs <br />
+                                                {item.nombre}
+
+                                            </td>
+                                            <td scope="col" className="px-3 py-3">
+                                                costo inmediato <br />
+                                                {item.nombre}
+                                            </td>
+                                        </>
+                                    })} */}
+
+
+                                    <td className="w-32 p-4">
+                                        <label htmlFor={`img${index}`}>
+                                            <img src={urlPostImage[i.uuid] ? urlPostImage[i.uuid] : i.url} alt="Apple Watch" />
+                                            <input id={`img${index}`} type="file" onChange={(e) => manageInputIMG(e, i.uuid)} className='hidden' />
+                                        </label>
+                                    </td>
+                                    <td className="min-w-[200px] px-3 py-4">
+                                        {state[i.uuid] || stateDynamic[i.uuid]
+                                            ? <Button theme={"Primary"} click={() => save(i)}>Guardar</Button>
+                                            : <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>
+                                        }
+                                    </td>
+                                </tr>
                         })
                         }
                     </tbody>

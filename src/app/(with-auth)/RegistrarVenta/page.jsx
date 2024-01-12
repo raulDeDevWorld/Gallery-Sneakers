@@ -101,10 +101,10 @@ console.log(counter)
                         <Label htmlFor="">Modelo</Label>
                         <Select arr={perfil.categoria} name='nombre 1' click={onClickHandlerSelect} />
                     </div>
-                    <div>
+                    {/* <div>
                         <Label htmlFor="">Cantidad </Label>
                         <Input type="text" name="precio" reference={inputRef4} onChange={onChangeHandler} require />
-                    </div>
+                    </div> */}
                     <div>
                         <Label htmlFor="">Costo Total </Label>
                         <Input type="text" name="precio" reference={inputRef4} onChange={onChangeHandler} require />
