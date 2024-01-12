@@ -263,13 +263,7 @@ function Home() {
                         }
                     </tbody>
                 </table>
-                <div className='lg:flex hidden lg:fixed top-[90px] right-[65px] '>
-                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-blue-500 border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Producto</div>
-              
-                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-green-500 border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Registrar venta</div>
-               
-                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-yellow-500 border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Transferir stock</div>
-                </div>
+                
                 {/* <div className='lg:flex hidden lg:fixed top-[100px] right-[65px] '>
                     <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-black border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Producto</div>
                     <div className='flex justify-center items-center bg-black h-[50px] w-[50px]  rounded-full text-white cursor-pointer' onClick={redirect}> <span className='text-white text-[30px]'>+</span> </div>

@@ -118,6 +118,10 @@ console.log(counter)
                         <Label htmlFor="">Modelo</Label>
                         <Input type="text" name="nombre 2" reference={inputRef2} onChange={onChangeHandler} />
                     </div>
+                    <div>
+                        <Label htmlFor="">nombre</Label>
+                        <Input type="text" name="nombre 3" reference={inputRef2} onChange={onChangeHandler} />
+                    </div>
                     {/* <div>
                         <Label htmlFor="">Descripción básica</Label>
                         <Input type="text" name="descripcion basica" reference={inputRef4} onChange={onChangeHandler} require />

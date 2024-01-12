@@ -72,8 +72,16 @@ function Home() {
    
             <div className="relative h-full overflow-x-auto shadow-2xl p-5 bg-white min-h-[80vh]">
                 {modal === 'Delete' && <Modal click={deletConfirm} funcion={() => delet(i)}>Estas seguro de eliminar al siguiente usuario {msg}</Modal>}
-                <h3 className='font-medium text-[16px]'>Sucursales</h3>
+                <h3 className='font-medium text-[16px]'>Historial</h3>
                 <br />
+                <div className='min-w-[1500px] flex justify-start items-center my-5 '>
+                    <h3 className="flex pr-12 text-[14px]" htmlFor="">Sucursal</h3>
+                    {sucursales && sucursales !== undefined && <div className="w-full grid gap-4 grid-cols-10" style={{ gridTemplateColumns: `repeat(${sucursales && sucursales !== undefined ? sucursales.length : 2}, 150px)` }}>
+                        {
+                            sucursales && sucursales !== undefined && Object.values(sucursales).map(i => <Tag theme={tag == i.nombre ? 'Primary' : 'Secondary'} click={() => setTag(tag == i.nombre ? '' : i.nombre)}>{i.nombre}</Tag>)
+                        }
+                    </div>}
+                </div>
                 <div className='flex justify-center w-full'>
                     <input type="text" className='border-b border-gray-300 gap-4 text-center focus:outline-none  w-[300px]' onChange={onChangeHandler} placeholder='Filtrar por nombre' />
                 </div>
