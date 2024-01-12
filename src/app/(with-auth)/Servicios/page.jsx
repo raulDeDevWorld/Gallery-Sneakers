@@ -163,7 +163,7 @@ function Home() {
                             {sucursales && sucursales !== undefined && Object.values(sucursales).map((i) => {
                                 return <>
                                     <th scope="col" className="min-w-[100px] text-center px-3 py-3">
-                                        Costo <br />
+                                        Stock <br />
                                         {i.nombre}
                                     </th>
                                     {/* <th scope="col" className="min-w-[100px] text-center px-3 py-3">
