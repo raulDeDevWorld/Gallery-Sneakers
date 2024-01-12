@@ -131,40 +131,34 @@ function Home() {
                     <input type="text" className='border-b border-gray-300 gap-4 text-center focus:outline-none  w-[300px]' onChange={onChangeHandler} placeholder='Filtrar por nombre' />
                 </div>
                 <br />
-                <table className={`w-[3000px]  min-w-[${sucursales && sucursales !== undefined ? sucursales.length * 200 + 1500 : 1500}px] text-[14px] text-left text-gray-500 border-t-4 border-gray-400`}>
+                <table className={` w-full text-[14px] text-left text-gray-500 border-t-4 border-gray-400`} style={{minWidth: `${sucursales && sucursales !== undefined ? sucursales.length * 200 + 1500 : 1500}px`}}>
                     <thead className="text-[14px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="min-w-[50px] px-3 py-3">
                                 #
                             </th>
-                            <th scope="col" className="px-3 py-3">
-                                Nombre 1
+                            <th scope="col" className="min-w-[80px] px-3 py-3">
+                                Marca
                             </th>
-                            <th scope="col" className="px-3 py-3">
-                                Nombre 2
+                            <th scope="col" className="min-w-[80px] px-3 py-3">
+                                Modelo
                             </th>
-                            <th scope="col" className="px-3 py-3">
-                                Nombre 3
-                            </th>
-
-                            <th scope="col" className="px-3 py-3">
+                            {/* <th scope="col" className="px-3 py-3">
                                 Descripcion basica
-                            </th>
-
-                            <th scope="col" className="text-center px-3 py-3">
+                            </th> */}
+                            {/* <th scope="col" className="text-center px-3 py-3">
                                 Categoria
                             </th>
                             <th scope="col" className="text-center px-3 py-3">
                                 Categoria 2
-                            </th>
+                            </th> */}
                             <th scope="col" className="text-center px-3 py-3">
                                 Precio
                             </th>
                             {sucursales && sucursales !== undefined && Object.values(sucursales).map((i) => {
                                 return <>
-                                    <th scope="col" className="min-w-[100px] text-center px-3 py-3">
-                                        Stock <br />
-                                        {i.nombre}
+                                    <th scope="col" className="  px-3 py-3">
+                                        Stock {i.nombre}
                                     </th>
                                     {/* <th scope="col" className="min-w-[100px] text-center px-3 py-3">
                                         Adicional inmediato <br />
@@ -190,19 +184,19 @@ function Home() {
                                     <td className="min-w-[50px] px-3 py-4 text-gray-900 align-middle">
                                         {index + 1}
                                     </td>
-                                    <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
-                                        <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 1' defaultValue={i['nombre 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
-                                        {/* {i['nombre 1']} */}
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 1' defaultValue={i['nombre 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                        {i['nombre 1']} 
                                     </td>
-                                    <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
-                                        <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 2' defaultValue={i['nombre 2']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
-                                        {/* {i['nombre 2']} */}
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 2' defaultValue={i['nombre 2']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                        {i['nombre 2']} 
                                     </td>
-                                    <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
-                                        <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 3' defaultValue={i['nombre 3']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
-                                        {/* {i['nombre 3']} */}
+                                    <td className=" px-3 py-4  text-gray-900 " >
+                                        {/* <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre 3' defaultValue={i['nombre 3']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea> */}
+                                         {i['precio']}
                                     </td>
-                                    <td className="px-3 py-4  text-gray-900 " >
+                                    {/* <td className="px-3 py-4  text-gray-900 " >
                                         <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='descripcion basica' defaultValue={i['descripcion basica']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
                                     </td>
                                     <td className="min-w-[200px] px-3 py-4  text-gray-900 " >
@@ -213,16 +207,23 @@ function Home() {
                                     </td>
                                     <td className="px-3 py-4  text-gray-900 " >
                                         <textarea id="message" rows="1" onChange={(e) => onChangeHandler(e, i)} cols="6" name='precio' defaultValue={i['precio']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
-                                    </td>
+                                    </td> */}
                                     {/* {JSON.parse(i['costos y entregas'])[`costo inmediato ${item.uuid}`]}  */}
                                     {sucursales && sucursales !== undefined && Object.values(sucursales).map((item) => {
 
                                         return <>
 
-                                            <td>
+                                            {/* <td>
                                                 <textarea id="message" rows="1" onChange={(e) => onChangeHandlerDynamic(e, i)} cols="6" name={`costo 24 hrs ${item.uuid}`} defaultValue={i['costos y entregas'] !== undefined ? i['costos y entregas'][`costo 24 hrs ${item.uuid}`] : 0} className="block p-1.5  w-full text-center h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
+                                            </td> */}
+                                            <td>
+                                                {i['costos y entregas'][`${item.uuid}`] !== undefined && Array(Object.values(i['costos y entregas'][`${item.uuid}`]).length/2).fill('').map((e, index)=>{
+                                                    console.log(i['costos y entregas'][`${item.uuid}`][`talla${index}`])
+                                               return <>Talla {i['costos y entregas'][`${item.uuid}`][`talla${index}`]}/ {i['costos y entregas'][`${item.uuid}`][`stock${index}`]}unidades <br /></>  
+                                                 } )
+                                                }
+                                             {/* {i['costos y entregas'][`${item.uuid}`]} / {i['costos y entregas'][`stock ${item.uuid}`]} */}
                                             </td>
-
                                             {/* <td>
                                                 <textarea id="message" rows="1" onChange={(e) => onChangeHandlerDynamic(e, i)} cols="6" name={`costo inmediato ${item.uuid}`} defaultValue={i['costos y entregas'] !== undefined ? i['costos y entregas'][`costo inmediato ${item.uuid}`] : 0} className="block p-1.5  w-full h-full text-center text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aqui..."></textarea>
                                             </td> */}
@@ -262,10 +263,17 @@ function Home() {
                         }
                     </tbody>
                 </table>
-                <div className='lg:flex hidden lg:fixed top-[100px] right-[65px] '>
-                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-black border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Servicio</div>
-                    <div className='flex justify-center items-center bg-black h-[50px] w-[50px]  rounded-full text-white cursor-pointer' onClick={redirect}> <span className='text-white text-[30px]'>+</span> </div>
+                <div className='lg:flex hidden lg:fixed top-[90px] right-[65px] '>
+                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-blue-500 border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Producto</div>
+              
+                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-green-500 border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Registrar venta</div>
+               
+                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-yellow-500 border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Transferir stock</div>
                 </div>
+                {/* <div className='lg:flex hidden lg:fixed top-[100px] right-[65px] '>
+                    <div className='flex justify-center items-center h-[50px] text-white text-[14px] font-bold bg-black border border-gray-200 rounded-[10px] px-10 cursor-pointer mr-2' onClick={redirect}>Agregar Producto</div>
+                    <div className='flex justify-center items-center bg-black h-[50px] w-[50px]  rounded-full text-white cursor-pointer' onClick={redirect}> <span className='text-white text-[30px]'>+</span> </div>
+                </div> */}
             </div>
         </div>
     )

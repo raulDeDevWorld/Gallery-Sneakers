@@ -20,12 +20,12 @@ function Home() {
     const router = useRouter()
 
     const { user, userDB, setUserData, setUserSuccess, success, setModal, modal, sucursales, setSucursales, perfil } = useUser()
-    const [state, setState] = useState({})
+    const [state, setState] = useState({['nombre 1']: perfil.categoria[0]})
     const [costos, setCostos] = useState({})
 
     const [postImage, setPostImage] = useState(null)
     const [urlPostImage, setUrlPostImage] = useState(null)
-    const [disable, setDisable] = useState(false)
+    const [counter, setCounter] = useState({})
 
     const inputRef1 = useRef(null)
     const inputRef2 = useRef(null)
@@ -48,21 +48,19 @@ function Home() {
     function onChangeHandler(e) {
         setState({ ...state, [e.target.name]: e.target.value })
     }
-    function onChangeHandlerDynimic(e) {
-        setCostos({ ...costos, [e.target.name]: e.target.value })
+    function onChangeHandlerDynimic(e, uuid) {
+        setCostos({ ...costos, [uuid]: costos[uuid] !== undefined ? {...costos[uuid], [e.target.name]: e.target.value} :{[e.target.name]: e.target.value} })
     }
+    console.log(state)
     function callback() {
 
-        inputRef1.current.value = ''
         inputRef2.current.value = ''
-        inputRef3.current.value = ''
         inputRef4.current.value = ''
-        inputRef5.current.value = ''
+
 
         setPostImage(null)
         setUrlPostImage(null)
         setUserSuccess('')
-        setDisable(false)
         setModal('')
     }
 
@@ -70,15 +68,21 @@ function Home() {
         e.preventDefault()
         setModal('Guardando')
         const uuid = generateUUID()
+        console.log({ categoria: perfil.categoria[0], ['recepcion por']: perfil['recepcion por'][0], ...state, uuid, ['costos y entregas']: costos })
         uploadStorage(`servicios/${uuid}`, postImage, { categoria: perfil.categoria[0], ['recepcion por']: perfil['recepcion por'][0], ...state, uuid, ['costos y entregas']: costos }, callback)
     }
 
     console.log(costos)
-
+    function add(name) {
+        setCounter({...counter, [name]:counter[name] !== undefined ? counter[name] +1 : 1})
+    }
+    function less(name) {
+        setCounter({...counter, [name]:counter[name] !== undefined && counter[name] !== 1 ? counter[name] -1 : 1})
+    }
     useEffect(() => {
         sucursales === undefined && readUserData('sucursales', setSucursales)
-    }, [sucursales])
-
+    }, [sucursales, counter])
+console.log(counter)
 
     return (
         <div className='min-h-full p-5 pb-[30px] lg:pb-5'>
@@ -107,30 +111,21 @@ function Home() {
                 <br />
                 <div className="md:grid gap-6 mb-6 md:grid-cols-2">
                     <div>
-                        <Label htmlFor="">Nombre 1</Label>
-                        <Input type="text" name="nombre 1" reference={inputRef1} onChange={onChangeHandler} require />
+                        <Label htmlFor="">Marca</Label>
+                        <Select arr={perfil.categoria} name='nombre 1' click={onClickHandlerSelect} />
                     </div>
                     <div>
-                        <Label htmlFor="">Nombre 2</Label>
+                        <Label htmlFor="">Modelo</Label>
                         <Input type="text" name="nombre 2" reference={inputRef2} onChange={onChangeHandler} />
                     </div>
-                    <div>
-                        <Label htmlFor="">Nombre 3</Label>
-                        <Input type="text" name="nombre 3" reference={inputRef3} onChange={onChangeHandler} />
-                    </div>
-
-                    <div>
+                    {/* <div>
                         <Label htmlFor="">Descripción básica</Label>
                         <Input type="text" name="descripcion basica" reference={inputRef4} onChange={onChangeHandler} require />
-                    </div>
-                    <div>
-                        <Label htmlFor="">Categoria</Label>
-                        <Select arr={perfil.categoria} name='categoria' click={onClickHandlerSelect} />
-                    </div>
-                    <div>
+                    </div> */}
+                    {/* <div>
                         <Label htmlFor="">Categoria 2 </Label>
                         <Select arr={perfil['recepcion por']} name='recepcion por' click={onClickHandlerSelect} />
-                    </div>
+                    </div> */}
                     <div>
                         <Label htmlFor="">Precio </Label>
                         <Input type="text" name="precio" reference={inputRef4} onChange={onChangeHandler} require />
@@ -140,14 +135,20 @@ function Home() {
                         sucursales && sucursales !== undefined && Object.values(sucursales).map((i, index) => {
                             return <div>
                                 <h5 className='text-center col-span-2 text-[16px] p-5'>{i.nombre}</h5>
-                                <div>
-                                    <Label htmlFor="">Stock</Label>
-                                    <Input type="text" name={`costo 24 hrs ${i.uuid}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={onChangeHandlerDynimic} />
+                                <div className='flex justify-between pb-5'>
+                                <button type='button' className='border-[1px] border-gray-300 shadow px-3 rounded-full' onClick={()=>add(i.nombre)}>Agregar +</button>
+                                {counter[i.nombre] !== undefined && <button type='button' className='border-[1px] border-gray-300 shadow px-3 rounded-full' onClick={()=>less(i.nombre)}>Menos -</button>}
                                 </div>
-                                {/* <div>
-                                    <Label htmlFor="">Costo adicional entrega inmediata</Label>
-                                    <Input type="text" name={`costo inmediato ${i.uuid}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={onChangeHandlerDynimic} />
-                                </div> */}
+                                {counter[i.nombre] !== undefined && Array(counter[i.nombre]).fill(1).map((e, index) => <>
+                                    <div>
+                                        <Label htmlFor="">Talla</Label>
+                                        <Input type="text" name={`talla${index}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={(e)=>onChangeHandlerDynimic(e, i.uuid)} />
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="">Stock</Label>
+                                        <Input type="text" name={`stock${index}`} styled={{ textAlign: 'center' }} reference={inputRef5} onChange={(e)=>onChangeHandlerDynimic(e, i.uuid)} />
+                                    </div>
+                                </>)}
                             </div>
                         })
                     }
