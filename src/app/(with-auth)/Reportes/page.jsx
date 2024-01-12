@@ -22,6 +22,7 @@ function Home() {
     const [categoria, setCategoria] = useState('')
     const [ciudad, setCiudad] = useState('')
     const [filter, setFilter] = useState('')
+    const [tag, setTag] = useState('')
 
 
     function onChangeHandler(e) {
